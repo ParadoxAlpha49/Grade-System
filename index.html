@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grading System</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="container py-5">
+	<h1>Free Grading System</h1>
+	<p>Input your achieved marks & get your grades in a second!</p>
+	<div class="row justify-content-center ">
+		
+	<div class="col-4">
+		<input id="marks" onkeyup="Txt()" type="text" class="form-control" placeholder="Your Marks"  maxlength="3">
+		<p style="color: #fff; margin-top: 10px" id="display"></p>
+
+		<button type="button" id="grade" onclick="grades()" class="btn btn-custom">Get your Grades!</button>
+	</div>
+		
+	</div>
+</div>
+<script>
+	var Numbr = 3;
+	var txt = " characters remaining"
+	document.getElementById("display").innerHTML = Numbr + txt;
+
+
+	function Txt(){
+
+		var value = document.getElementById("marks").value;
+		var length = value.length;
+		
+		var remaining = Numbr - length;
+
+		document.getElementById("display").innerHTML = remaining + txt;
+
+		if(remaining<=0){
+
+			document.getElementById("display").style.
+			color = "red";
+		} else{
+			document.getElementById("display").style.
+			color = "#fff";
+		}
+	}
+
+	function grades(){
+
+		var value = document.getElementById("marks").value;
+
+	if(value>=101){
+		alert("Invalid Number!");
+	} else if(value>=80){
+		alert("Congrats! You got A+");
+	} else if(value>=70){
+		alert("Congrats! You got A");
+	} else if(value>=60){
+		alert("Congrats! You got A-");
+	} else if(value>=50){
+		alert("You got B , study more!");
+	} else if(value>=40){
+		alert("You got C , You need to work very hard");
+	}else if(value>=33){
+		alert("You somehow passed! Need to focus on study");
+	}else if(value<33){
+		alert("Sorry! you are failed better luck next time!");
+	}
+	}
+
+</script>
+</body>
+</html>
